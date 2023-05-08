@@ -42,3 +42,16 @@ swap.addEventListener('click', () => {
 });
 
 calculate();
+
+
+const lightDark = document.getElementById("html");
+const darkBtn = document.getElementById('darkMode');
+const lightBtn = document.getElementById('lightMode');
+
+darkBtn.addEventListener('click', function() {
+  lightDark.classList.add('dark');
+})
+
+lightBtn.addEventListener('click', function() {
+  lightDark.classList.remove('dark');
+})
