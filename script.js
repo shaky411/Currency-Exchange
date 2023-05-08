@@ -5,6 +5,7 @@ const amountEl_two = document.getElementById('amount-two');
 
 const rateEl = document.getElementById('rate');
 const swap = document.getElementById('swap');
+const timeEl = document.getElementById('time');
 
 
 
@@ -16,10 +17,14 @@ function calculate() {
     fetch(`https://v6.exchangerate-api.com/v6/bac0219fe30b6ca4eb496c5a/latest/${currency_one}`)
     .then(res => res.json())
     .then(data => {
-        // console.log(data);
+        console.log(data);
+
+      const time = data.time_last_update_utc
+      console.log(time)
       const rate = data.conversion_rates[currency_two];
 
       rateEl.innerText = `1 ${currency_one} = ${rate} ${currency_two}`;
+      timeEl.innerText = `Last update: ${time}`
 
       amountEl_two.value = (amountEl_one.value * rate).toFixed(2);
 
